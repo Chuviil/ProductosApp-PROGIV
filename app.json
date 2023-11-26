@@ -3,6 +3,7 @@
     "name": "ProductosApp-PROGIV",
     "slug": "ProductosApp-PROGIV",
     "version": "1.0.0",
+    "scheme": "productosapp-progiv",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
