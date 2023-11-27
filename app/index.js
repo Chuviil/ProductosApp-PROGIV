@@ -1,10 +1,11 @@
 import {ActivityIndicator, SafeAreaView, ScrollView, View} from "react-native";
-import {Stack, useFocusEffect} from "expo-router";
+import {router, Stack, useFocusEffect} from "expo-router";
 import {StatusBar} from "expo-status-bar";
 import ListaProductos from "../components/home/listaProductos/ListaProductos";
 import useFetch from "../hooks/useFetch";
 import {useCallback} from "react";
 import {SIZES} from "../constants";
+import Button from "../components/common/button/Button";
 
 export default function Page() {
     const {data, loading, error, refetch} = useFetch("Producto");
@@ -36,7 +37,14 @@ export default function Page() {
                     ) : error ? (
                         <Text>Error: {error.message}</Text>
                     ) : (
-                        <ListaProductos data={data}/>
+                        <>
+                            <View style={{width: 315}}>
+                                <Button color={"#000"} light title={"Crear Producto"}
+                                    onPress={() => router.push("/producto/create")}
+                                />
+                            </View>
+                            <ListaProductos data={data}/>
+                        </>
                     )}
                 </View>
             </ScrollView>
