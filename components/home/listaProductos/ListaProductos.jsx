@@ -1,20 +1,24 @@
 import ProductoCard from "../productoCard/ProductoCard";
-import {View} from "react-native";
+import { Text, View } from "react-native";
 import styles from "./listaProductos.style";
-import {router} from "expo-router";
+import { router } from "expo-router";
 
-const ListaProductos = ({data}) => {
+const ListaProductos = ({ data }) => {
     return (
-        <View style={styles.cardsContainer}>
-            {data?.map((producto) => (
-                <ProductoCard
-                    key={producto.idProducto}
-                    producto={producto}
-                    handleNavigate={() => router.push(`/producto/${producto.idProducto}`)}
-                />
-            ))}
-        </View>
-    )
-}
+        data?.length <= 0 ? (
+            <Text>No hay productos, prueba agregar uno con el boton de arriba.</Text>
+        ) : (
+            <View style={styles.cardsContainer}>
+                {data?.map((producto) => (
+                    <ProductoCard
+                        key={producto.idProducto}
+                        producto={producto}
+                        handleNavigate={() => router.push(`/producto/${producto.idProducto}`)}
+                    />
+                ))}
+            </View>
+        )
+    );
+};
 
 export default ListaProductos;
