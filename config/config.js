@@ -1,1 +1,1 @@
-export const URL = "http://192.168.100.72:5285";
+export const URL = "https://productosprogiv.azurewebsites.net";
