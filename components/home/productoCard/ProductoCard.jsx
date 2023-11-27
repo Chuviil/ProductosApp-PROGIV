@@ -1,16 +1,17 @@
 import {Image, Text, TouchableOpacity, View} from "react-native";
 import styles from "./productoCard.style";
+import {images} from "../../../constants";
 
 const ProductoCard = ({producto, handleNavigate}) => {
     return (
         <TouchableOpacity style={styles.container} onPress={handleNavigate}>
-            <TouchableOpacity style={styles.imgContainer}>
+            <View style={styles.imgContainer}>
                 <Image
-                    source={{uri: "https://picsum.photos/200"}}
+                    source={images.mono}
                     resizeMode={'contain'}
                     style={styles.imgProducto}
                 />
-            </TouchableOpacity>
+            </View>
 
             <View style={styles.textContainer}>
                 <Text style={styles.productoName} numberOfLines={1}>

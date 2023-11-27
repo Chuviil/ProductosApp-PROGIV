@@ -6,6 +6,7 @@ import {useState} from "react";
 import axios from "axios";
 import {URL} from "../../../config/config";
 import {router} from "expo-router";
+import {images} from "../../../constants";
 
 const ProductoDisplay = ({producto}) => {
     const [canEdit, setCanEdit] = useState(false);
@@ -44,7 +45,7 @@ const ProductoDisplay = ({producto}) => {
         <View style={styles.container}>
             <Text style={styles.title}>{producto?.nombre}</Text>
             <Image
-                source={{uri: "https://picsum.photos/200"}}
+                source={images.mono}
                 resizeMode={'contain'}
                 style={styles.imgProducto}
             />
