@@ -1,4 +1,4 @@
-import {ActivityIndicator, SafeAreaView, ScrollView, Text, View} from "react-native";
+import {ActivityIndicator, SafeAreaView, Text, View} from "react-native";
 import {Stack, useLocalSearchParams} from "expo-router";
 import {StatusBar} from "expo-status-bar";
 import {SIZES} from "../../constants";
@@ -13,27 +13,25 @@ const Producto = () => {
         <SafeAreaView style={{flex: 1}}>
             <Stack.Screen
                 options={{
-                    headerTitle: "Productos",
+                    headerTitle: "Producto",
                     headerTitleAlign: "center",
                 }}
             />
             <StatusBar style={"auto"}/>
-            <ScrollView showsVerticalScrollIndicator={false}>
-                <View
-                    style={{
-                        flex: 1,
-                        padding: SIZES.medium,
-                    }}
-                >
-                    {loading ? (
-                        <ActivityIndicator size={"large"}/>
-                    ) : error ? (
-                        <Text>Error: {error.message}</Text>
-                    ) : (
-                        <ProductoDisplay producto={data} />
-                    )}
-                </View>
-            </ScrollView>
+            <View
+                style={{
+                    flex: 1,
+                    padding: SIZES.medium,
+                }}
+            >
+                {loading ? (
+                    <ActivityIndicator size={"large"}/>
+                ) : error ? (
+                    <Text>Error: {error.message}</Text>
+                ) : (
+                    <ProductoDisplay producto={data}/>
+                )}
+            </View>
         </SafeAreaView>
     );
 }
